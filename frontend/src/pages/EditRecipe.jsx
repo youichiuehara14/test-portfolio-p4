@@ -66,8 +66,8 @@ const EditRecipe = () => {
         cookingTime: formData.cookingTime ? Number(formData.cookingTime) : undefined,
       });
       navigate('/');
-    } catch (err) {
-      setError('Failed to add recipe');
+    } catch (error) {
+      setError('Failed to add recipe', error);
     } finally {
       setLoading(false);
     }
