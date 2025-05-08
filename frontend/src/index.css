@@ -1,1 +1,35 @@
 @import 'tailwindcss';
+@import 'boxicons';
+
+html {
+  background-color: #191919;
+  color: white;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/src/assets/fonts/Quicksand.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMSans';
+  src: url('/src/assets/fonts/DMSans.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Atteron';
+  src: url('/src/assets/fonts/Atteron.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@theme {
+  --font-primary: 'Quicksand';
+  --font-secondary: 'DmSans';
+  --font-tertiary: 'Atteron';
+}

@@ -1,26 +1,39 @@
-import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import Home from './pages/Home';
+import AppPage from './pages/AppPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AddRecipe from './pages/AddRecipe';
 import RecipeDetail from './pages/RecipeDetail';
 import EditRecipe from './pages/EditRecipe';
-
+import HomePage from './pages/HomePage';
+import NavigationBar from './components/NavigationBar';
+import ContactForm from './pages/ContactForm';
+import PageNotFound from './pages/PageNotFound';
+import Footer from './components/Footer';
 function App() {
   return (
-    <AuthProvider>
-      <Navbar />
+    <div className="min-h-screen flex flex-col justify-between ">
+      <div>
+        <NavigationBar />
+      </div>
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/app" element={<AppPage />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
+        <Route path="/contact" element={<ContactForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add-recipe" element={<AddRecipe />} />
         <Route path="/edit-recipe/:id" element={<EditRecipe />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </AuthProvider>
+      <div className="py-3 border-t-1 mt-auto border-[#5c5c5c] shadow-2xl shadow-[#ffcab5]">
+        <div className="max-w-[90%] mx-auto ">
+          <Footer />
+        </div>
+      </div>
+    </div>
   );
 }
 
