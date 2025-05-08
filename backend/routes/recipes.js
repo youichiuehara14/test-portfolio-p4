@@ -12,9 +12,9 @@ const router = express.Router();
 
 router.post('/', protect, createRecipe);
 
-router.get('/', getRecipes);
+router.get('/', protect, getRecipes);
 
-router.get('/:id', getRecipeById);
+router.get('/:id', protect, getRecipeById);
 
 router.put('/:id', protect, updateRecipe);
 
