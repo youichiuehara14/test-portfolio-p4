@@ -1,7 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const RandomCards = () => {
+  const { user } = useContext(AuthContext);
   const [randomDrink, setRandomDrink] = useState([]);
   const effectRan = useRef(false);
 
@@ -49,7 +51,7 @@ const RandomCards = () => {
             App to find out!
           </p>
         </div>
-        <Link className="flex flex-col items-center justify-center" to="/App">
+        <Link className="flex flex-col items-center justify-center" to={user ? '/app' : '/login'}>
           <i className="bx bxs-right-arrow-circle lg:text-8xl md:text-7xl text-6xl"></i>
           <span className="text-md lg:text-2xl font-semibold">Proceed to App</span>
         </Link>
